@@ -8,8 +8,10 @@
       "周囲のにわとりは警戒を強めている。",
       "詳細は不明だが、状況は継続している。"
     ],
-    "tags": ["human", "morning", "disturbance"],
-    "date": "2026-04-21"
+    "tag": "Human",
+    "image": "jen-we-Kv3Xk2gfhyU-unsplash.jpg",
+    "date": "2026-04-21",
+    "recommended": true
   },
   {
     "id": 2,
@@ -20,8 +22,10 @@
       "関係者は「いつものこと」とコメント。",
       "原因は依然として不明である。"
     ],
-    "tags": ["egg", "mystery", "coop"],
-    "date": "2026-04-20"
+    "tag": "Egg",
+    "image": "anita-austvika-Y9nHYu2Fqak-unsplash.jpg",
+    "date": "2026-04-20",
+    "recommended": true
   },
   {
     "id": 3,
@@ -32,7 +36,9 @@
       "空の異常として記録された。",
       "専門家は「自然現象の可能性」と説明。"
     ],
-    "tags": ["sky", "light", "night"],
-    "date": "2026-04-19"
+    "tag": "World",
+    "image": "sandra-grunewald-icB9CXGEOh0-unsplash.jpg",
+    "date": "2026-04-19",
+    "recommended": false
   }
 ]

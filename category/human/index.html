@@ -9,12 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/home.css" />
-    <title>THE CHICKEN TIMES</title>
+    <link rel="stylesheet" href="../../assets/css/base.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <title>Human News - THE CHICKEN TIMES</title>
+    <script>
+      window.targetCategory = "Human";
+    </script>
   </head>
   <body>
-    <!-- ----- header ----- -->
     <header>
       <div class="header-inner">
         <div class="logo">THE CHICKEN TIMES</div>
@@ -22,31 +24,28 @@
         <div class="meta" id="date"></div>
       </div>
       <ul class="global-nav">
-        <li><a href="./category/human/">Human</a></li>
-        <li><a href="./category/egg/">Egg</a></li>
-        <li><a href="./category/world/">World</a></li>
-        <li><a href="./category/incident/">Incident</a></li>
-        <li><a href="./category/opinion/">Opinion</a></li>
+        <li><a href="../../category/human/">Human</a></li>
+        <li><a href="../../category/egg/">Egg</a></li>
+        <li><a href="../../category/world/">World</a></li>
+        <li><a href="../../category/incident/">Incident</a></li>
+        <li><a href="../../category/opinion/">Opinion</a></li>
       </ul>
     </header>
 
-    <!-- ----- main ----- -->
     <main class="layout">
       <section class="main">
         <div id="articles"></div>
       </section>
-
       <aside class="side">
         <ul id="recommended"></ul>
       </aside>
     </main>
 
-    <!-- ----- footer ----- -->
     <footer>
       <div class="footer-inner">
         <p>&copy; 2026 The Chicken Times. Created by niwatoriiiiiiiii.</p>
       </div>
     </footer>
-    <script src="assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,256 @@
+/* ----- article / layout ----- */
+article {
+  padding: 50px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+article:last-child {
+  border-bottom: none;
+}
+
+main {
+  display: grid;
+  gap: 0;
+}
+
+.main {
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+}
+
+/* ----- header ----- */
+header {
+  padding: 30px 20px 10px;
+  margin-bottom: 40px;
+}
+
+header .header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 0 20px;
+  border-bottom: 4px double #000;
+  text-align: center;
+}
+
+header .logo {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-size: 60px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+header .sub {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+header .meta {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* ----- global nav ----- */
+.global-nav {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 15px 0;
+  border-bottom: 1px solid #000;
+  font-family: 'Playfair Display', "Noto Serif JP", serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.global-nav a {
+  text-decoration: none;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.global-nav a:hover {
+  color: #000;
+}
+
+.content {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.headline {
+    font-family: "Noto Serif JP", serif;
+}
+
+.headline h1 {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.article-meta {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+
+.article-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.article-text {
+  flex: 1;
+}
+
+.article-image {
+  width: 500px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.lead {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#body p {
+  margin: 10px 0;
+  line-height: 1.8;
+}
+
+.layout {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+.side {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-top: 20px;
+  top: 20px;
+  height: fit-content;
+}
+
+#recommended {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.side-article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.side-article:last-child {
+  border-bottom: none;
+}
+
+.side-article img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.side-article h3 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  font-weight: 600;
+}
+
+.side-article p {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+  /* リード文の制限を少し緩める（または3行に） */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .main {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .article-content {
+    flex-direction: column-reverse; /* image on top */
+  }
+
+  .article-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 10px;
+  }
+
+  /* Compact header */
+  header {
+    padding: 30px 20px 10px;
+    margin-bottom: 15px;
+  }
+
+  header .header-inner {
+    padding: 10px 0;
+    border-bottom: 3px double #000;
+    text-align: center;
+  }
+
+  .global-nav {
+    gap: 15px;
+    font-size: 12px;
+    padding: 10px 0;
+    flex-wrap: wrap; /* スマホで折り返す用 */
+  }
+
+  header .logo {
+    font-size: 20px;
+    line-height: 1.1;
+  }
+
+  header .sub {
+    display: none;
+  }
+
+  header .meta {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+}
