@@ -258,9 +258,11 @@ function renderGridArticle(container, article) {
     <a href="${articleUrl}" class="article-image-wrapper">
       <img src="${imageSrc}" class="article-image" alt="">
     </a>
-    <div class="article-meta">${article.category} | ${article.date}</div>
-    <h2><a href="${articleUrl}" style="color:inherit; text-decoration:none;">${article.title}</a></h2>
-    <p class="lead">${lead}</p>
+    <div class="grid-article-info">
+      <div class="article-meta">${article.category} | ${article.date}</div>
+      <h2><a href="${articleUrl}" style="color:inherit; text-decoration:none;">${article.title}</a></h2>
+      <p class="lead">${lead}</p>
+    </div>
   `;
   container.appendChild(div);
 }

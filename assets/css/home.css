@@ -1,246 +1,4 @@
-/* ----- article / layout ----- */
-article.is-list {
-  padding: 50px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-article:last-child {
-  border-bottom: none;
-}
-
-main {
-  display: grid;
-  gap: 0;
-}
-
-.main {
-  border-right: 1px solid #ddd;
-  padding-right: 20px;
-  min-height: 100vh; /* 読み込み中のガタつきを軽減 */
-}
-
-/* ----- header ----- */
-header {
-  padding: 30px 20px 10px;
-  margin-bottom: 40px;
-}
-
-header .header-inner {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 0 20px;
-  border-bottom: 4px double #000;
-  text-align: center;
-}
-
-header .logo {
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-header .logo a {
-  text-decoration: none;
-  color: inherit;
-}
-
-header .sub {
-  font-size: 12px;
-  color: #666;
-  margin-top: 4px;
-}
-
-header .meta {
-  font-size: 12px;
-  color: #666;
-  margin-top: 6px;
-}
-
-/* ----- global nav ----- */
-.global-nav {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  list-style: none;
-  padding: 15px 0;
-  border-bottom: 1px solid #000;
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.global-nav a {
-  text-decoration: none;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.global-nav a:hover {
-  color: #000;
-}
-
-.content {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.headline {
-  font-family: "Noto Serif JP", serif;
-}
-
-.headline h1 {
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.article-meta {
-  font-family: "Noto Serif JP", serif;
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 13px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.article-content {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.article-content > a {
-  /* 画像を囲っているリンクタグを正しく制御する */
-  flex-basis: 45%;    /* 横幅の基準を45%に設定 */
-  flex-shrink: 0;     /* テキストに押されて縮まないようにする */
-  max-width: 500px;   /* 500pxよりは大きくならない */
-}
-
-.article-text {
-  flex: 1;
-}
-
-.article-image {
-  width: 100%;        /* 親の <a> タグの幅いっぱいに広がる */
-  height: auto;       /* 高さは自動（アスペクト比を維持） */
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  display: block;     /* 隙間を消す */
-  background-color: #f5f5f5;
-}
-
-.lead {
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-weight: normal;
-  margin-bottom: 5px;
-  line-height: 1.4;
-}
-
-#body p {
-  margin: 10px 0;
-  line-height: 1.8;
-}
-
-.layout {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px;
-
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 20px;
-}
-
-/* カテゴリ・個別記事ページでのレイアウト変更（CLS対策） */
-body.is-category .layout,
-body.is-detail .layout {
-  grid-template-columns: 1fr;
-  max-width: 1000px;
-}
-
-body.is-category .side,
-body.is-detail .side {
-  display: none;
-}
-
-body.is-category .main,
-body.is-detail .main {
-  border-right: none;
-  padding-right: 0;
-}
-
-.side {
-  font-family: "Playfair Display", "Noto Serif JP", serif;
-  font-size: 16px;
-  padding-left: 10px;
-  padding-top: 20px;
-  top: 20px;
-  height: fit-content;
-}
-
-#recommended {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-.side-article {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid #ccc;
-  align-items: flex-start;
-}
-
-.side-article:last-child {
-  border-bottom: none;
-}
-
-.side-article img {
-  width: 80px;
-  height: 80px;
-  flex-shrink: 0;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.side-article-info {
-  flex: 1;
-}
-
-.side-article h3 {
-  font-family: "Noto Serif JP", serif;
-  font-size: 15px;
-  line-height: 1.4;
-  margin: 0 0 5px 0;
-  font-weight: 600;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.side-article p {
-  font-size: 12px;
-  color: #666;
-  margin: 0;
-  line-height: 1.5;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* ----- articles grid (Random 2 Area) ----- */
+/* ----- Home specific articles grid (Random 2 Area) ----- */
 .articles-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -268,24 +26,18 @@ body.is-detail .main {
   font-family: "Playfair Display", "Noto Serif JP", serif;
   font-size: 20px;
   line-height: 1.3;
-  margin: 0;
-}
-
-.grid-article .article-meta {
-  margin-bottom: 5px;
 }
 
 .grid-article .lead {
   font-size: 14px;
   color: #444;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
-/* ----- side featured (Large Sidebar Item) ----- */
+.grid-article-info {
+  flex: 1;
+}
+
+/* ----- Home specific side featured (Large Sidebar Item) ----- */
 .side-featured-item {
   margin-bottom: 40px;
   padding-bottom: 20px;
@@ -297,10 +49,6 @@ body.is-detail .main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   margin-bottom: 15px;
-}
-
-.side-featured-item .article-meta {
-  margin-bottom: 10px;
 }
 
 .side-featured-item h2 {
@@ -317,109 +65,40 @@ body.is-detail .main {
   color: #333;
 }
 
+/* ----- Home specific mobile overrides ----- */
 @media (max-width: 800px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .main {
-    border-right: none;
-    padding-right: 0;
-  }
-
-  .side {
-    display: none;
-  }
-
   .articles-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+    border-top: 1px solid #000;
+    padding: 30px 0;
   }
 
-  .article-content {
-    flex-direction: column-reverse; /* image on top */
-  }
-
-  .article-image {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
-    margin-bottom: 10px;
-  }
-
-  /* Compact header */
-  header {
-    padding: 30px 20px 10px;
-    margin-bottom: 15px;
-  }
-
-  header .header-inner {
-    padding: 10px 0;
-    border-bottom: 3px double #000;
-    text-align: center;
-  }
-
-  .global-nav {
+  .grid-article {
+    flex-direction: row;
     gap: 15px;
-    font-size: 12px;
-    padding: 10px 0;
-    flex-wrap: wrap; /* スマホで折り返す用 */
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ccc;
+    align-items: flex-start;
   }
 
-  header .logo {
-    font-size: 20px;
-    line-height: 1.1;
+  .grid-article:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
-  header .sub {
-    display: none;
+  .grid-article .article-image-wrapper {
+    width: 100px;
+    flex-shrink: 0;
   }
 
-  header .meta {
-    font-size: 11px;
-    margin-top: 8px;
+  .grid-article .article-image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
   }
-}
 
-/* ----- skeleton loader (CLS対策) ----- */
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 4px;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
+  .grid-article h2 {
+    font-size: 18px;
   }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-.skeleton-text {
-  height: 20px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.skeleton-title {
-  height: 35px;
-  width: 80%;
-  margin-bottom: 15px;
-}
-
-.skeleton-image {
-  width: 500px;
-  aspect-ratio: 3 / 2;
-  flex-shrink: 0;
-  background-color: #eee;
-}
-
-.skeleton-article {
-  display: flex;
-  gap: 24px;
-  padding: 50px 0;
-  border-bottom: 1px solid #eee;
 }

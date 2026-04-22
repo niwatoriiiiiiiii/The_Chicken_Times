@@ -19,7 +19,6 @@ const ARTICLE_TEMPLATE = `<!doctype html>
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../../../assets/css/base.css" />
-    <link rel="stylesheet" href="../../../../assets/css/home.css" />
     <link rel="stylesheet" href="../../../../assets/css/article.css" />
     <title>THE CHICKEN TIMES</title>
     <script>
@@ -74,7 +73,6 @@ const CATEGORY_TEMPLATE = `<!doctype html>
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../assets/css/base.css" />
-    <link rel="stylesheet" href="../../assets/css/home.css" />
     <link rel="stylesheet" href="../../assets/css/category.css" />
     <title>{{CAT_NAME}} News - THE CHICKEN TIMES</title>
     <script>
