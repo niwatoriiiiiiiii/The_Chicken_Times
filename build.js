@@ -119,26 +119,42 @@ const CATEGORY_TEMPLATE = `<!doctype html>
 // 3. 記事ページの生成
 console.log('Generating article pages...');
 articles.forEach(article => {
-    const dir = path.join(__dirname, 'articles', article.date, article.tag.toLowerCase(), article.slug);
+    const dir = path.join(__dirname, 'articles', article.date, article.category.toLowerCase(), article.slug);
+    const filePath = path.join(dir, 'index.html');
+    
+    // スキップロジック
+    if (fs.existsSync(filePath)) {
+        // console.log(`- Skipped: ${article.date}/${article.category}/${article.slug}`);
+        return;
+    }
+
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
     const content = ARTICLE_TEMPLATE.replace('{{ID}}', article.id);
-    fs.writeFileSync(path.join(dir, 'index.html'), content);
-    console.log(`- Created: ${article.date}/${article.tag}/${article.slug}`);
+    fs.writeFileSync(filePath, content);
+    console.log(`- Created: ${article.date}/${article.category}/${article.slug}`);
 });
 
-// 4. カテゴリページの生成（タグを自動収集）
+// 4. カテゴリページの生成（カテゴリを自動収集）
 console.log('Generating category pages...');
-const tags = [...new Set(articles.map(a => a.tag))];
-tags.forEach(tag => {
-    const dir = path.join(__dirname, 'category', tag.toLowerCase());
+const categories = [...new Set(articles.map(a => a.category))];
+categories.forEach(category => {
+    const dir = path.join(__dirname, 'category', category.toLowerCase());
+    const filePath = path.join(dir, 'index.html');
+
+    // スキップロジック
+    if (fs.existsSync(filePath)) {
+        // console.log(`- Skipped: category/${category.toLowerCase()}`);
+        return;
+    }
+
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
-    const content = CATEGORY_TEMPLATE.replace(/{{CAT_NAME}}/g, tag);
-    fs.writeFileSync(path.join(dir, 'index.html'), content);
-    console.log(`- Created: category/${tag.toLowerCase()}`);
+    const content = CATEGORY_TEMPLATE.replace(/{{CAT_NAME}}/g, category);
+    fs.writeFileSync(filePath, content);
+    console.log(`- Created: category/${category.toLowerCase()}`);
 });
 
 console.log('Build completed successfully!');

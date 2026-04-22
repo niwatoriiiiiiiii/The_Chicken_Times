@@ -35,25 +35,47 @@ const authPromise = signInAnonymously(auth).then(result => {
 });
 
 function showSkeletons() {
-  const container = document.getElementById("articles");
-  if (!container) return;
-  if (typeof window.targetArticleId === "undefined") {
-    container.innerHTML = "";
-    for (let i = 0; i < 3; i++) {
-      const skel = document.createElement("div");
-      skel.className = "skeleton-article";
-      skel.innerHTML = `
-        <div class="article-text">
-          <div class="skeleton skeleton-text" style="width: 30%"></div>
-          <div class="skeleton skeleton-title"></div>
-          <div class="skeleton skeleton-text"></div>
-          <div class="skeleton skeleton-text" style="width: 90%"></div>
-        </div>
-        <div class="skeleton skeleton-image"></div>
-      `;
-      container.appendChild(skel);
+  const latestContainer = document.getElementById("articles-latest");
+  const gridContainer = document.getElementById("articles-grid");
+  const mainContainer = document.getElementById("articles");
+
+  if (typeof window.targetArticleId === "undefined" && typeof window.targetCategory === "undefined") {
+    // ホーム画面
+    if (latestContainer) {
+      latestContainer.innerHTML = "";
+      for (let i = 0; i < 3; i++) renderSkeleton(latestContainer);
     }
+    if (gridContainer) {
+      gridContainer.innerHTML = "";
+      // グリッド用の簡易スケルトン
+      for (let i = 0; i < 2; i++) {
+        const skel = document.createElement("div");
+        skel.className = "skeleton-article";
+        skel.style.flexDirection = "column";
+        skel.innerHTML = `<div class="skeleton-image" style="width:100%"></div><div class="skeleton-text" style="margin-top:10px"></div>`;
+        gridContainer.appendChild(skel);
+      }
+    }
+  } else if (mainContainer) {
+    // カテゴリまたは記事詳細（記事詳細は実際にはJSで上書きされるがフォールバックとして）
+    mainContainer.innerHTML = "";
+    for (let i = 0; i < 3; i++) renderSkeleton(mainContainer);
   }
+}
+
+function renderSkeleton(container) {
+  const skel = document.createElement("div");
+  skel.className = "skeleton-article";
+  skel.innerHTML = `
+    <div class="article-text">
+      <div class="skeleton skeleton-text" style="width: 30%"></div>
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text" style="width: 90%"></div>
+    </div>
+    <div class="skeleton skeleton-image"></div>
+  `;
+  container.appendChild(skel);
 }
 
 showSkeletons();
@@ -61,62 +83,113 @@ showSkeletons();
 fetch(basePath + "data/news.json")
   .then(res => res.json())
   .then(data => {
-    const recommendedContainer = document.getElementById("recommended");
-    if (recommendedContainer) {
-      recommendedContainer.innerHTML = "";
-      const recommended = data.filter(a => a.recommended);
-      for (let i = recommended.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [recommended[i], recommended[j]] = [recommended[j], recommended[i]];
-      }
-      recommended.forEach(a => {
-        const itemEl = document.createElement("li");
-        itemEl.className = "side-article";
-        const articleUrl = `${basePath}articles/${a.date}/${a.tag.toLowerCase()}/${a.slug}/`;
-        const sidebarLead = Array.isArray(a.lead) ? a.lead[0] : a.lead;
-        itemEl.innerHTML = `
-          <a href="${articleUrl}" style="display:contents; color:inherit; text-decoration:none;">
-            <img src="${basePath}assets/articles/${a.tag.toLowerCase()}/${a.image}" alt="" style="aspect-ratio: 1/1; object-fit: cover;">
-            <div class="side-article-info">
-              <h3>${a.title}</h3>
-              <p>${sidebarLead}</p>
-            </div>
-          </a>
-        `;
-        recommendedContainer.appendChild(itemEl);
-      });
-    }
+    // 1. サイドバーのレンダリング
+    renderSidebar(data);
 
+    // 2. メインコンテンツのレンダリング
     const container = document.getElementById("articles");
-    if (container) container.innerHTML = ""; 
+    const latestContainer = document.getElementById("articles-latest");
+    const gridContainer = document.getElementById("articles-grid");
 
     if (typeof window.targetArticleId !== "undefined") {
+      // 記事詳細ページ
       const article = data.find(a => a.id === window.targetArticleId);
       if (article) {
         document.title = `${article.title} - THE CHICKEN TIMES`;
-        renderArticle(container, article, true);
+        if (container) {
+          container.innerHTML = "";
+          renderArticle(container, article, true);
+        }
         initFirebaseForArticle(window.targetArticleId);
       }
       return;
     }
 
     if (typeof window.targetCategory !== "undefined") {
-      const catHeading = document.createElement("h1");
-      catHeading.className = "category-title";
-      catHeading.textContent = `${window.targetCategory} News`;
-      container.appendChild(catHeading);
-      data = data.filter(a => a.tag === window.targetCategory);
+      // カテゴリページ
+      if (container) {
+        container.innerHTML = "";
+        const catHeading = document.createElement("h1");
+        catHeading.className = "category-title";
+        catHeading.textContent = `${window.targetCategory} News`;
+        container.appendChild(catHeading);
+        const filtered = data.filter(a => a.category === window.targetCategory);
+        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        filtered.forEach(article => renderArticle(container, article, false));
+      }
+      return;
     }
 
-    data.forEach(article => {
-      renderArticle(container, article, false);
-    });
+    // ホーム画面
+    if (latestContainer && gridContainer) {
+      latestContainer.innerHTML = "";
+      gridContainer.innerHTML = "";
+      
+      // 日付順にソート
+      const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date) || b.id - a.id);
+      
+      // 最新3件
+      const latest3 = sorted.slice(0, 3);
+      latest3.forEach(article => renderArticle(latestContainer, article, false));
+      
+      // 最新3件以外からランダムに2件
+      const others = sorted.slice(3);
+      const random2 = shuffle([...others]).slice(0, 2);
+      random2.forEach(article => renderGridArticle(gridContainer, article));
+    }
   });
+
+function renderSidebar(data) {
+  const featuredContainer = document.getElementById("side-featured");
+  const listContainer = document.getElementById("recommended");
+  if (!featuredContainer || !listContainer) return;
+
+  featuredContainer.innerHTML = "";
+  listContainer.innerHTML = "";
+
+  const recommended = data.filter(a => a.recommended);
+  const shuffled = shuffle([...recommended]);
+
+  // 大項目 (1件)
+  if (shuffled.length > 0) {
+    const featured = shuffled[0];
+    const articleUrl = `${basePath}articles/${featured.date}/${featured.category.toLowerCase()}/${featured.slug}/`;
+    featuredContainer.innerHTML = `
+      <div class="side-featured-item">
+        <a href="${articleUrl}" style="text-decoration:none; color:inherit;">
+          <img src="${basePath}assets/articles/${featured.category.toLowerCase()}/${featured.image}" alt="">
+          <div class="article-meta">${featured.category} | ${featured.date}</div>
+          <h2>${featured.title}</h2>
+          <p>${Array.isArray(featured.lead) ? featured.lead[0] : featured.lead}</p>
+        </a>
+      </div>
+    `;
+  }
+
+  // 小項目 (リスト 5件)
+  const remaining = shuffled.slice(1, 6);
+  remaining.forEach(article => {
+    const itemEl = document.createElement("li");
+    itemEl.className = "side-article";
+    const articleUrl = `${basePath}articles/${article.date}/${article.category.toLowerCase()}/${article.slug}/`;
+    const sidebarLead = Array.isArray(article.lead) ? article.lead[0] : article.lead;
+    itemEl.innerHTML = `
+      <a href="${articleUrl}" style="display:contents; color:inherit; text-decoration:none;">
+        <img src="${basePath}assets/articles/${article.category.toLowerCase()}/${article.image}" alt="">
+        <div class="side-article-info">
+          <h3>${article.title}</h3>
+          <p>${sidebarLead}</p>
+        </div>
+      </a>
+    `;
+    listContainer.appendChild(itemEl);
+  });
+}
 
 function renderArticle(container, article, isDetail) {
   const el = document.createElement("article");
   el.className = isDetail ? "headline is-detail" : "headline is-list";
-  const articleUrl = isDetail ? "#" : `${basePath}articles/${article.date}/${article.tag.toLowerCase()}/${article.slug}/`;
+  const articleUrl = isDetail ? "#" : `${basePath}articles/${article.date}/${article.category.toLowerCase()}/${article.slug}/`;
   const textWrapper = document.createElement("div");
   textWrapper.className = "article-text";
   const titleHtml = isDetail 
@@ -124,7 +197,7 @@ function renderArticle(container, article, isDetail) {
     : `<h1><a href="${articleUrl}" style="color:inherit; text-decoration:none;">${article.title}</a></h1>`;
   const metadataEl = document.createElement("div");
   metadataEl.className = "article-meta";
-  metadataEl.innerHTML = `${article.tag} | ${article.date} <span id="view-count-wrap"></span>`;
+  metadataEl.innerHTML = `${article.category} | ${article.date} <span id="view-count-wrap"></span>`;
   const leadContainer = document.createElement("div");
   leadContainer.className = "lead-container";
   const leads = Array.isArray(article.lead) ? article.lead : [article.lead];
@@ -153,11 +226,11 @@ function renderArticle(container, article, isDetail) {
     textWrapper.appendChild(reactionContainer);
   }
 
-  if (article.image && article.tag) {
-    const imageSrc = `${basePath}assets/articles/${article.tag.toLowerCase()}/${article.image}`;
+  if (article.image && article.category) {
+    const imageSrc = `${basePath}assets/articles/${article.category.toLowerCase()}/${article.image}`;
     const imageHtml = isDetail
       ? `<img src="${imageSrc}" class="article-image" width="1000" height="562">`
-      : `<a href="${articleUrl}"><img src="${imageSrc}" class="article-image" width="500" height="333"></a>`;
+      : `<a href="${articleUrl}" class="article-image-wrapper"><img src="${imageSrc}" class="article-image" width="500" height="333"></a>`;
     if (isDetail) {
       el.appendChild(textWrapper);
       textWrapper.insertBefore(createElementFromHTML(imageHtml), textWrapper.querySelector('.lead-container'));
@@ -172,6 +245,32 @@ function renderArticle(container, article, isDetail) {
     el.appendChild(textWrapper);
   }
   container.appendChild(el);
+}
+
+function renderGridArticle(container, article) {
+  const div = document.createElement("div");
+  div.className = "grid-article";
+  const articleUrl = `${basePath}articles/${article.date}/${article.category.toLowerCase()}/${article.slug}/`;
+  const imageSrc = `${basePath}assets/articles/${article.category.toLowerCase()}/${article.image}`;
+  const lead = Array.isArray(article.lead) ? article.lead[0] : article.lead;
+  
+  div.innerHTML = `
+    <a href="${articleUrl}" class="article-image-wrapper">
+      <img src="${imageSrc}" class="article-image" alt="">
+    </a>
+    <div class="article-meta">${article.category} | ${article.date}</div>
+    <h2><a href="${articleUrl}" style="color:inherit; text-decoration:none;">${article.title}</a></h2>
+    <p class="lead">${lead}</p>
+  `;
+  container.appendChild(div);
+}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 let userReactions = [];

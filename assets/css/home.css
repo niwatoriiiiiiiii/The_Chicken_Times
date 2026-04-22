@@ -100,6 +100,7 @@ header .meta {
 }
 
 .article-meta {
+  font-family: "Noto Serif JP", serif;
   font-size: 14px;
   color: #888;
   margin-bottom: 13px;
@@ -134,6 +135,7 @@ header .meta {
 }
 
 .lead {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
   font-weight: normal;
   margin-bottom: 5px;
   line-height: 1.4;
@@ -189,11 +191,12 @@ body.is-detail .main {
 
 .side-article {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 15px;
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
   border-bottom: 1px solid #ccc;
+  align-items: flex-start;
 }
 
 .side-article:last-child {
@@ -201,30 +204,117 @@ body.is-detail .main {
 }
 
 .side-article img {
-  width: 100%;
-  height: auto;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
+.side-article-info {
+  flex: 1;
+}
+
 .side-article h3 {
   font-family: "Noto Serif JP", serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.4;
-  margin: 0;
+  margin: 0 0 5px 0;
   font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .side-article p {
   font-size: 12px;
   color: #666;
-  margin-top: 8px;
+  margin: 0;
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ----- articles grid (Random 2 Area) ----- */
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px 0;
+  border-top: 1px solid #ddd;
+}
+
+.grid-article {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.grid-article .article-image-wrapper {
+  width: 100%;
+}
+
+.grid-article .article-image {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.grid-article h2 {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.grid-article .article-meta {
+  margin-bottom: 5px;
+}
+
+.grid-article .lead {
+  font-size: 14px;
+  color: #444;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ----- side featured (Large Sidebar Item) ----- */
+.side-featured-item {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.side-featured-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.side-featured-item .article-meta {
+  margin-bottom: 10px;
+}
+
+.side-featured-item h2 {
+  font-family: "Playfair Display", "Noto Serif JP", serif;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.side-featured-item p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
 }
 
 @media (max-width: 800px) {
@@ -239,6 +329,11 @@ body.is-detail .main {
 
   .side {
     display: none;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .article-content {
