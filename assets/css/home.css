@@ -1,5 +1,5 @@
 /* ----- article / layout ----- */
-article {
+article.is-list {
   padding: 50px 0;
   border-bottom: 1px solid #ddd;
 }
@@ -16,6 +16,7 @@ main {
 .main {
   border-right: 1px solid #ddd;
   padding-right: 20px;
+  min-height: 100vh; /* 読み込み中のガタつきを軽減 */
 }
 
 /* ----- header ----- */
@@ -66,7 +67,7 @@ header .meta {
   list-style: none;
   padding: 15px 0;
   border-bottom: 1px solid #000;
-  font-family: 'Playfair Display', "Noto Serif JP", serif;
+  font-family: "Playfair Display", "Noto Serif JP", serif;
   font-weight: bold;
   font-size: 15px;
 }
@@ -89,7 +90,7 @@ header .meta {
 }
 
 .headline {
-    font-family: "Noto Serif JP", serif;
+  font-family: "Noto Serif JP", serif;
 }
 
 .headline h1 {
@@ -99,14 +100,12 @@ header .meta {
 }
 
 .article-meta {
-  font-size: 12px;
+  font-size: 14px;
   color: #888;
-  margin-bottom: 6px;
+  margin-bottom: 13px;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
-
-
 
 .article-content {
   display: flex;
@@ -114,20 +113,30 @@ header .meta {
   align-items: flex-start;
 }
 
+.article-content > a {
+  /* 画像を囲っているリンクタグを正しく制御する */
+  flex-basis: 45%;    /* 横幅の基準を45%に設定 */
+  flex-shrink: 0;     /* テキストに押されて縮まないようにする */
+  max-width: 500px;   /* 500pxよりは大きくならない */
+}
+
 .article-text {
   flex: 1;
 }
 
 .article-image {
-  width: 500px;
+  width: 100%;        /* 親の <a> タグの幅いっぱいに広がる */
+  height: auto;       /* 高さは自動（アスペクト比を維持） */
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  flex-shrink: 0;
+  display: block;     /* 隙間を消す */
+  background-color: #f5f5f5;
 }
 
 .lead {
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: normal;
+  margin-bottom: 5px;
+  line-height: 1.4;
 }
 
 #body p {
@@ -143,6 +152,24 @@ header .meta {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 20px;
+}
+
+/* カテゴリ・個別記事ページでのレイアウト変更（CLS対策） */
+body.is-category .layout,
+body.is-detail .layout {
+  grid-template-columns: 1fr;
+  max-width: 1000px;
+}
+
+body.is-category .side,
+body.is-detail .side {
+  display: none;
+}
+
+body.is-category .main,
+body.is-detail .main {
+  border-right: none;
+  padding-right: 0;
 }
 
 .side {
@@ -193,7 +220,6 @@ header .meta {
   color: #666;
   margin-top: 8px;
   line-height: 1.5;
-  /* リード文の制限を少し緩める（または3行に） */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -258,4 +284,47 @@ header .meta {
     font-size: 11px;
     margin-top: 8px;
   }
+}
+
+/* ----- skeleton loader (CLS対策) ----- */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton-text {
+  height: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.skeleton-title {
+  height: 35px;
+  width: 80%;
+  margin-bottom: 15px;
+}
+
+.skeleton-image {
+  width: 500px;
+  aspect-ratio: 3 / 2;
+  flex-shrink: 0;
+  background-color: #eee;
+}
+
+.skeleton-article {
+  display: flex;
+  gap: 24px;
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
 }

@@ -1,0 +1,185 @@
+article.is-detail {
+  padding-bottom: 50px;
+}
+
+.headline.is-detail {
+  padding-top: 10px;
+}
+
+.headline.is-detail h1 {
+  font-size: 44px;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.headline.is-detail .lead {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.headline.is-detail .lead-container {
+  margin-bottom: 35px; /* リード全体の下の余白 */
+}
+
+#body-content p {
+  font-size: 18px;
+  line-height: 1.9;
+  margin-bottom: 1.6em;
+  color: #333;
+}
+
+.headline.is-detail .article-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* 詳細ページは16:9などで固定 */
+  margin-bottom: 40px;
+  object-fit: cover;
+  background-color: #f0f0f0; /* 読み込み前のプレースホルダー色 */
+}
+
+/* ----- view count & reactions ----- */
+
+.view-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 15px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 100px; /* カウント出現時の幅変化を抑える */
+  min-height: 20px;
+}
+
+.reaction-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 60px;
+  padding: 30px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  min-height: 100px; /* ピッカーやボタンが現れる前の高さを確保 */
+}
+
+.reaction-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.reaction-btn:hover {
+  background: #fff;
+  border-color: #bbb;
+  transform: translateY(-2px);
+}
+
+.reaction-btn.acted {
+  background: #e8f5fa;
+  border-color: #1d9bd1;
+  color: #1264a3;
+}
+
+.reaction-btn .count {
+  font-size: 13px;
+  font-weight: 700;
+  color: #666;
+}
+
+/* ----- emoji picker ----- */
+
+.add-reaction-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px dashed #ccc;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+  color: #888;
+}
+
+.add-reaction-btn:hover {
+  border-color: #999;
+  background: #f8f8f8;
+  transform: scale(1.1);
+}
+
+.emoji-picker-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: none;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  z-index: 1000;
+  width: 240px;
+  /* transitionを追加 */
+  opacity: 0;
+  margin-bottom: -10px;
+  transition: opacity 0.15s ease, margin 0.15s ease;
+  pointer-events: none; /* 閉じている時はクリック無効 */
+}
+
+.emoji-picker.show {
+  display: grid;
+  opacity: 1;
+  margin-bottom: 0;
+  pointer-events: auto;
+}
+
+
+.picker-emoji {
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.picker-emoji:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+ .reaction-bar {
+  margin-top: 30px;
+ }
+
+  article.is-detail {
+    padding-bottom: 20px;
+  }
+}
