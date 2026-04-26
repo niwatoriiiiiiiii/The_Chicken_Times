@@ -20,6 +20,7 @@ const ARTICLE_TEMPLATE = `<!doctype html>
     />
     <link rel="stylesheet" href="../../../../assets/css/base.css" />
     <link rel="stylesheet" href="../../../../assets/css/article.css" />
+    <link rel="icon" href="../../../../favicon.ico" />
     <title>THE CHICKEN TIMES</title>
     <script>
       window.targetArticleId = {{ID}};
@@ -74,6 +75,7 @@ const CATEGORY_TEMPLATE = `<!doctype html>
     />
     <link rel="stylesheet" href="../../assets/css/base.css" />
     <link rel="stylesheet" href="../../assets/css/category.css" />
+    <link rel="icon" href="../../favicon.ico" />
     <title>{{CAT_NAME}} News - THE CHICKEN TIMES</title>
     <script>
       window.targetCategory = "{{CAT_NAME}}";
