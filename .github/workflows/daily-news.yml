@@ -1,0 +1,39 @@
+name: Daily News Generation
+
+on:
+  schedule:
+    - cron: "0 22 * * *" # 22:00 UTC = 07:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate new article
+        run: node generate.js
+
+      - name: Build static files
+        run: node build.js
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          if ! git diff --cached --quiet; then
+            git commit -m "Chore / Daily news update $(date +'%Y-%m-%d') [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
