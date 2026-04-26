@@ -165,10 +165,67 @@
     ],
     "category": "Opinion",
     "image": "egor-myznik-WDKEg5sDz0Y-unsplash.jpg",
-    "date": "2026-04-22",
+    "date": "2026-04-23",
     "slug": "chicken-memory-meaning",
     "recommended": false,
     "id": 8
+  },
+  {
+    "title": "給水装置、供給が停止する",
+    "lead": [
+      "直近の観測では、記録担当の区画で給水装置の供給停止が確認された。",
+      "周囲の警戒への影響が懸念されており、周辺では一時的に動きが止まった。"
+    ],
+    "body": [
+      "今回の事象は、給水設備に関する継続観測の中で確認された。",
+      "専門家の間でも意見が分かれているが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた警戒中のにわとりは「再確認が必要だ」と述べた。",
+      "短時間の混乱であっても、記録上は重要な変化として扱われている。",
+      "今後も同様の動きがあるか確認される見込みだ。"
+    ],
+    "category": "Incident",
+    "image": "tom-hermans-9BoqXzEeQqM-unsplash.jpg",
+    "date": "2026-04-24",
+    "slug": "water-system-supply-stops",
+    "recommended": false,
+    "id": 9
+  },
+  {
+    "title": "整列された卵、数が合わなくなる",
+    "lead": [
+      "今朝早く、保管区画で整列された卵の数の不一致が確認された。"
+    ],
+    "body": [
+      "観測によると、整列された卵は過去にも同様の変化が確認されており、今回の事象は継続的なものとみられている。",
+      "専門家の間でも意見が分かれているが現時点では原因を断定できる材料は揃っていない。",
+      "原因の特定には時間がかかるとみられる。"
+    ],
+    "category": "Egg",
+    "image": "autumn-mott-rodeheaver-YLyxXawZm4w-unsplash.jpg",
+    "date": "2026-04-25",
+    "slug": "aligned-eggs-numbers-no-longer-match",
+    "recommended": true,
+    "id": 10
+  },
+  {
+    "title": "整列された卵、温度変化を示す",
+    "lead": [
+      "本日未明、柵付近で整列された卵の温度変化が確認された。",
+      "保管作業への影響が懸念されており、その後もしばらく静かな状態が続いた。"
+    ],
+    "body": [
+      "点検記録を見る限り、整列された卵の変化は一度きりではない。",
+      "理由はよくわかっていないが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた専門家のにわとりは「これまでにも似た兆候はあった」と述べた。",
+      "点検係は保管区画を中心に、所在確認を続けている。",
+      "再確認の工程が増やされる可能性がある。",
+      "今後も同様の動きがあるか確認されるとみられている。"
+    ],
+    "category": "Egg",
+    "image": "montatip-lilitsanong-dJ7_aiPtKiA-unsplash.jpg",
+    "date": "2026-04-26",
+    "slug": "aligned-eggs-show-temperature-change",
+    "recommended": true,
+    "id": 11
   }
 ]
-
