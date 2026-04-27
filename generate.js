@@ -1083,7 +1083,7 @@ function buildArticle(category, options = {}) {
     body,
     category: category,
     image: "",
-    date: new Date().toISOString().slice(0, 10),
+    date: new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" }),
     slug: `${subject.slug}-${action.slug}`,
     recommended: Math.random() < 0.35,
     _bertEmbedFn: embedFn   // scoreArticle のBERTペナルティ計算に渡す
@@ -1118,7 +1118,7 @@ function generateArticle(category, options = {}) {
     ],
     category: category,
     image: "",
-    date: new Date().toISOString().slice(0, 10),
+    date: new Date().toLocaleDateString("sv-SE", { timeZone: "Asia/Tokyo" }),
     slug: `${subject.slug}-${action.slug}`,
     recommended: false
   };
