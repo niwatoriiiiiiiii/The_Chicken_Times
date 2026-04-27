@@ -248,5 +248,22 @@
     "slug": "night-human-suddenly-run-off",
     "recommended": true,
     "id": 12
+  },
+  {
+    "title": "風、強い風を伴う",
+    "lead": [
+      "直近の観測では、南側通路で風が強い風を伴ったことが確認された。"
+    ],
+    "body": [
+      "記録では、風に似た変化が断続的に確認されている。",
+      "記録上はまだ説明がついていないが現時点では原因を断定できる材料は揃っていない。",
+      "記録の更新が進められている。"
+    ],
+    "category": "World",
+    "image": "frances-gunn-QcBAZ7VREHQ-unsplash.jpg",
+    "date": "2026-04-28",
+    "slug": "wind-come-with-strong-wind",
+    "recommended": false,
+    "id": 13
   }
 ]
