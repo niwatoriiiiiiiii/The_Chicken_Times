@@ -265,5 +265,25 @@
     "slug": "wind-come-with-strong-wind",
     "recommended": false,
     "id": 13
+  },
+  {
+    "title": "回収待ちの卵、数が合わなくなる",
+    "lead": [
+      "今朝の段階で、保管区画で回収待ちの卵の数の不一致が確認された。",
+      "群れ全体の行動への影響が懸念されており、現場では短時間だけ空気が張りつめた。"
+    ],
+    "body": [
+      "記録によると、回収待ちの卵の所在確認では以前から似た傾向が記録されており、今回も例外ではない可能性がある。",
+      "詳細は不明だが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた複数の個体は「静観するしかない」と述べた。",
+      "点検係は給餌エリアを中心に、所在確認を続けている。",
+      "今後も同様の動きがあるか確認される見込みだ。"
+    ],
+    "category": "Egg",
+    "image": "michael-anfang-LAVcmB1Gli0-unsplash.jpg",
+    "date": "2026-04-29",
+    "slug": "awaiting-collection-eggs-numbers-no-longer-match",
+    "recommended": false,
+    "id": 14
   }
 ]
