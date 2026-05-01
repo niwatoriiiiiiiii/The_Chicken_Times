@@ -326,5 +326,26 @@
     "slug": "corridor-become-silent-briefly",
     "recommended": false,
     "id": 16
+  },
+  {
+    "title": "群れの秩序の整理",
+    "lead": [
+      "一部の時間帯で、監視区域では群れの秩序を巡る整理が続いている。",
+      "これを受けて、秩序の問い直しに対する見直しが進んでいる。"
+    ],
+    "body": [
+      "議論の焦点は、秩序の問い直しをどう捉えるかに移っている。",
+      "詳細は不明だが現時点では結論を急ぐ段階ではない。",
+      "現場にいた点検係は「再確認が必要だ」と述べた。",
+      "見方の違いはあるが、問題意識の共有は進んでいる。",
+      "しばらくは静かな観測が続いた。",
+      "引き続き観測は続けられる。"
+    ],
+    "category": "Opinion",
+    "image": "zosia-szopka-gAFO9T4URjM-unsplash.jpg",
+    "date": "2026-05-02",
+    "slug": "flock-order-organization",
+    "recommended": true,
+    "id": 17
   }
 ]
