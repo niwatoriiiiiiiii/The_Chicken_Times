@@ -511,5 +511,25 @@
     "slug": "stored-eggs-move-unnaturally",
     "recommended": false,
     "id": 25
+  },
+  {
+    "title": "群れと個体の本質",
+    "lead": [
+      "ここ数日、記録担当の区画では群れと個体を巡る本質の整理が続いている。",
+      "これを受けて、群れの構造に対する見直しが進んでいる。"
+    ],
+    "body": [
+      "議論の焦点は、群れの構造をどう捉えるかに移っている。",
+      "目的は解明されていないが現時点では結論を急ぐ段階ではない。",
+      "現場にいた観測班は「かなり慎重に見る必要がある」と述べた。",
+      "関係をめぐる認識は、改めて整理されつつある。",
+      "記録の更新が進められている。"
+    ],
+    "category": "Opinion",
+    "image": "marius-karotkis-K7zrVuKWMhw-unsplash.jpg",
+    "date": "2026-05-11",
+    "slug": "flock-and-individual-essence",
+    "recommended": false,
+    "id": 26
   }
 ]
