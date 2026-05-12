@@ -552,5 +552,23 @@
     "slug": "beam-of-light-mysterious-light-appears",
     "recommended": false,
     "id": 27
+  },
+  {
+    "title": "朝の騒音の見直し",
+    "lead": [
+      "夜間にかけて、柵付近では朝の騒音を巡る見直しが続いている。"
+    ],
+    "body": [
+      "議論の焦点は、朝の音をどう捉えるかに移っている。",
+      "現時点では断定できないが現時点では結論を急ぐ段階ではない。",
+      "意見の違いはあるもの、理解の更新は続いている。",
+      "追加情報が入り次第、更新される予定だ。"
+    ],
+    "category": "Opinion",
+    "image": "brooke-cagle-EenUxvVltMs-unsplash.jpg",
+    "date": "2026-05-13",
+    "slug": "morning-noise-reconsideration",
+    "recommended": true,
+    "id": 28
   }
 ]
