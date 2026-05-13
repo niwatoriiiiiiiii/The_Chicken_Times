@@ -570,5 +570,23 @@
     "slug": "morning-noise-reconsideration",
     "recommended": true,
     "id": 28
+  },
+  {
+    "title": "卵、保管列から外れる",
+    "lead": [
+      "直近の観測では、給餌エリアで卵の位置ずれが確認された。"
+    ],
+    "body": [
+      "点検記録を見る限り、卵の変化は一度きりではない。",
+      "詳細は不明だが現時点では原因を断定できる材料は揃っていない。",
+      "再確認の工程が増やされる可能性がある。",
+      "現場では引き続き警戒が維持される。"
+    ],
+    "category": "Egg",
+    "image": "montatip-lilitsanong-dJ7_aiPtKiA-unsplash.jpg",
+    "date": "2026-05-14",
+    "slug": "egg-leave-storage-line",
+    "recommended": false,
+    "id": 29
   }
 ]
