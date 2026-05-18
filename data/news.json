@@ -673,5 +673,25 @@
     "slug": "the-act-of-crowing-rethink",
     "recommended": false,
     "id": 33
+  },
+  {
+    "title": "給水装置、供給が停止する",
+    "lead": [
+      "夜間にかけて、柵付近で給水装置の供給停止が確認された。",
+      "周囲の警戒への影響が懸念されており、周辺では一時的に動きが止まった。"
+    ],
+    "body": [
+      "今回の事象は、給水設備に関する継続観測の中で確認された。",
+      "一部では偶然との見方もあるが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた監視を続ける個体は「再確認が必要だ」と述べた。",
+      "短時間の混乱であっても、記録上は重要な変化として扱われている。",
+      "関係者は慎重な対応を続けている。"
+    ],
+    "category": "Incident",
+    "image": "tom-hermans-9BoqXzEeQqM-unsplash.jpg",
+    "date": "2026-05-19",
+    "slug": "water-system-supply-stops",
+    "recommended": true,
+    "id": 34
   }
 ]
