@@ -757,5 +757,25 @@
     "slug": "beam-of-light-briefly-become-brighter",
     "recommended": false,
     "id": 37
+  },
+  {
+    "title": "卵、保管列から外れる",
+    "lead": [
+      "昨夜、南側通路で卵の位置ずれが確認された。",
+      "保管作業への影響が懸念されており、現場では短時間だけ空気が張りつめた。"
+    ],
+    "body": [
+      "点検記録を見る限り、卵の変化は一度きりではない。",
+      "専門家の間でも意見が分かれているが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた監視を続ける個体は「想定外ではない」と述べた。",
+      "回収作業との時間差が、変化の一因である可能性もある。",
+      "現場では引き続き警戒が維持される。"
+    ],
+    "category": "Egg",
+    "image": "autumn-mott-rodeheaver-YLyxXawZm4w-unsplash.jpg",
+    "date": "2026-05-23",
+    "slug": "egg-leave-storage-line",
+    "recommended": true,
+    "id": 38
   }
 ]
