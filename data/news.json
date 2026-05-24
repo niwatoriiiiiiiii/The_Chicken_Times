@@ -799,5 +799,25 @@
     "slug": "white-clothed-human-stare-at-eggs",
     "recommended": false,
     "id": 39
+  },
+  {
+    "title": "点検対象の卵、温度変化を示す",
+    "lead": [
+      "一部の時間帯で、外周部で点検対象の卵の温度変化が確認された。",
+      "保管作業への影響が懸念されており、その後もしばらく静かな状態が続いた。"
+    ],
+    "body": [
+      "記録によると、点検対象の卵の所在確認では以前から似た傾向が記録されており、今回も例外ではない可能性がある。",
+      "詳細は不明だが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた長期観測チームは「判断は早い」と述べた。",
+      "点検係は観測班を中心に、所在確認を続けている。",
+      "引き続き観測は続けられる。"
+    ],
+    "category": "Egg",
+    "image": "nick-fewings-qlLCBkTSYAI-unsplash.jpg",
+    "date": "2026-05-25",
+    "slug": "inspected-eggs-show-temperature-change",
+    "recommended": false,
+    "id": 40
   }
 ]
