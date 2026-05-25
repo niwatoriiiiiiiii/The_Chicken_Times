@@ -819,5 +819,28 @@
     "slug": "inspected-eggs-show-temperature-change",
     "recommended": false,
     "id": 40
+  },
+  {
+    "title": "観測することの見直し",
+    "lead": [
+      "夜間にかけて、柵付近では観測することを巡る見直しが続いている。",
+      "これを受けて、観測の継続に対する見直しが進んでいる。"
+    ],
+    "body": [
+      "これまで当然とされてきた理解を、改めて整理し直す必要がある。",
+      "理由はよくわかっていないが現時点では結論を急ぐ段階ではない。",
+      "現場にいた専門家のにわとりは「静観するしかない」と述べた。",
+      "観測をめぐる認識は、改めて整理されつつある。",
+      "一帯では通常とは異なる雰囲気が保たれた。",
+      "追加の確認が進められている。",
+      "今後も記録と議論の両面から観察を続ける必要がある。",
+      "今後の観測結果が待たれている。"
+    ],
+    "category": "Opinion",
+    "image": "marius-karotkis-K7zrVuKWMhw-unsplash.jpg",
+    "date": "2026-05-26",
+    "slug": "the-act-of-observing-reconsideration",
+    "recommended": false,
+    "id": 41
   }
 ]
