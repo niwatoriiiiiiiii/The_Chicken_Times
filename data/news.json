@@ -842,5 +842,22 @@
     "slug": "the-act-of-observing-reconsideration",
     "recommended": false,
     "id": 41
+  },
+  {
+    "title": "白い服の人間、朝に騒ぐ",
+    "lead": [
+      "今朝の段階で、観測地点周辺で白い服の人間が朝に騒いだことが確認された。"
+    ],
+    "body": [
+      "観測によると、白い服の人間は以前から似た動きを見せており、今回の事象もその延長にある可能性がある。",
+      "理由はよくわかっていないが現時点では原因を断定できる材料は揃っていない。",
+      "今後の観測結果が待たれている。"
+    ],
+    "category": "Human",
+    "image": "uttam-kumar-roy-p4AxX13IQ8I-unsplash.jpg",
+    "date": "2026-05-27",
+    "slug": "white-clothed-human-make-noise-in-the-morning",
+    "recommended": false,
+    "id": 42
   }
 ]
