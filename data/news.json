@@ -859,5 +859,25 @@
     "slug": "white-clothed-human-make-noise-in-the-morning",
     "recommended": false,
     "id": 42
+  },
+  {
+    "title": "回収待ちの卵、温度変化を示す",
+    "lead": [
+      "午後にかけて、記録担当の区画で回収待ちの卵の温度変化が確認された。",
+      "保管作業への影響が懸念されており、その後もしばらく静かな状態が続いた。"
+    ],
+    "body": [
+      "点検記録を見る限り、回収待ちの卵の変化は一度きりではない。",
+      "現時点では断定できないが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた監視を続ける個体は「想定外ではない」と述べた。",
+      "点検係は給餌エリアを中心に、所在確認を続けている。",
+      "原因の特定には時間がかかるとみられる。"
+    ],
+    "category": "Egg",
+    "image": "nick-fewings-qlLCBkTSYAI-unsplash.jpg",
+    "date": "2026-05-28",
+    "slug": "awaiting-collection-eggs-show-temperature-change",
+    "recommended": true,
+    "id": 43
   }
 ]
