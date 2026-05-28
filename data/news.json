@@ -879,5 +879,23 @@
     "slug": "awaiting-collection-eggs-show-temperature-change",
     "recommended": true,
     "id": 43
+  },
+  {
+    "title": "風、遠くで揺れる",
+    "lead": [
+      "昨夜、保管区画で風が遠くで揺れたことが確認された。"
+    ],
+    "body": [
+      "記録では、風に似た変化が断続的に確認されている。",
+      "理由はよくわかっていないが現時点では原因を断定できる材料は揃っていない。",
+      "外界の変化に関する追加観測が行われる予定だ。",
+      "現場では引き続き警戒が維持される。"
+    ],
+    "category": "World",
+    "image": "christian-joudrey-DuD5D3lWC3c-unsplash.jpg",
+    "date": "2026-05-29",
+    "slug": "wind-sway-in-the-distance",
+    "recommended": false,
+    "id": 44
   }
 ]
