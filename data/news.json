@@ -935,5 +935,25 @@
     "slug": "sky-suddenly-darken",
     "recommended": false,
     "id": 46
+  },
+  {
+    "title": "回収待ちの卵、温度変化を示す",
+    "lead": [
+      "早朝、外周部で回収待ちの卵の温度変化が確認された。",
+      "保管作業への影響が懸念されており、その後もしばらく静かな状態が続いた。"
+    ],
+    "body": [
+      "記録によると、回収待ちの卵の所在確認では以前から似た傾向が記録されており、今回も例外ではない可能性がある。",
+      "目的は解明されていないが現時点では原因を断定できる材料は揃っていない。",
+      "現場にいた記録担当の個体は「記録を続ける価値はある」と述べた。",
+      "保管区画では、回収待ちの移動経路が記録されている。",
+      "今後も同様の動きがあるか確認される見込みだ。"
+    ],
+    "category": "Egg",
+    "image": "montatip-lilitsanong-dJ7_aiPtKiA-unsplash.jpg",
+    "date": "2026-06-01",
+    "slug": "awaiting-collection-eggs-show-temperature-change",
+    "recommended": false,
+    "id": 47
   }
 ]
